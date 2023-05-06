@@ -1,6 +1,7 @@
 
 package com.alura.foro.model;
 
+import com.alura.foro.record.usuario.DatosActualizarUsuario;
 import com.alura.foro.record.usuario.DatosRegistroUsuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,12 +13,10 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity(name = "Usuario")
 @Table(name = "usuarios")
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -45,6 +44,18 @@ public class Usuario {
         this.nombre = datosRegistroUsuario.nombre();
         this.email = datosRegistroUsuario.email();
         this.contrasena = datosRegistroUsuario.contrasena();
+    }
+
+    public void actualizarDatos(DatosActualizarUsuario datosActualizarUsuario) {
+        if (datosActualizarUsuario.nombre() != null) {
+            this.nombre = datosActualizarUsuario.nombre();
+        }
+        if (datosActualizarUsuario.email() != null) {
+            this.email = datosActualizarUsuario.email();
+        }
+        if (datosActualizarUsuario.contrasena() != null) {
+            this.contrasena = datosActualizarUsuario.contrasena();
+        }
     }
 
 }

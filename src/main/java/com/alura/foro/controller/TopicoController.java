@@ -60,7 +60,7 @@ public class TopicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<DatosListadoTopico> retornaDatosTopico(@PathVariable Long id) {
-        try {
+        if (topicoRepository.existsById(id)) {
             Topico topico = topicoRepository.getReferenceById(id);
             var datosTopico = new DatosListadoTopico(
                     topico.getTopicoId(),
@@ -69,9 +69,8 @@ public class TopicoController {
                     topico.getFechaCreacion().toString()
             );
             return ResponseEntity.ok(datosTopico);
-        } catch (Exception ex) {
-            return ResponseEntity.notFound().build();
         }
+        return ResponseEntity.notFound().build();
     }
 
     @PutMapping()
@@ -93,9 +92,12 @@ public class TopicoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity eliminarTopico(@PathVariable Long id) {
-        Topico topico = topicoRepository.getReferenceById(id);
-        topicoRepository.delete(topico);
-        return ResponseEntity.noContent().build();
+        if (topicoRepository.existsById(id)) {
+            Topico topico = topicoRepository.getReferenceById(id);
+            topicoRepository.delete(topico);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

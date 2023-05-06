@@ -15,4 +15,8 @@ public record DatosActualizarTopico(
         Usuario autor,
         Curso curso) {
 
+    public DatosActualizarTopico(@NotNull Long id, String titulo, String mensaje, StatusTopico estado) {
+        this(id, titulo, mensaje, estado, null, null);
+    }
+
 }
