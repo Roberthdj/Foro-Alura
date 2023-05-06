@@ -1,7 +1,7 @@
 
 package com.alura.foro.controller;
 
-import com.alura.foro.record.DatosRegistroUsuario;
+import com.alura.foro.record.usuario.DatosRegistroUsuario;
 import com.alura.foro.model.Usuario;
 import com.alura.foro.repository.UsuarioRepository;
 import jakarta.validation.Valid;

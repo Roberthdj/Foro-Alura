@@ -2,11 +2,11 @@
 package com.alura.foro.controller;
 
 import com.alura.foro.model.Curso;
-import com.alura.foro.record.DatosActualizarCurso;
-import com.alura.foro.record.DatosListadoCurso;
+import com.alura.foro.record.curso.DatosActualizarCurso;
+import com.alura.foro.record.curso.DatosListadoCurso;
 import com.alura.foro.repository.CursoRepository;
-import com.alura.foro.record.DatosRegistroCurso;
-import com.alura.foro.record.DatosRespuestaCurso;
+import com.alura.foro.record.curso.DatosRegistroCurso;
+import com.alura.foro.record.curso.DatosRespuestaCurso;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.net.URI;

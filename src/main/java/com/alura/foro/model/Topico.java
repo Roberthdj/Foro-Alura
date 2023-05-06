@@ -4,7 +4,8 @@ package com.alura.foro.model;
 import com.alura.foro.model.Curso;
 import com.alura.foro.model.Respuesta;
 import com.alura.foro.model.Usuario;
-import com.alura.foro.record.DatosRegistroTopico;
+import com.alura.foro.record.topico.DatosActualizarTopico;
+import com.alura.foro.record.topico.DatosRegistroTopico;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
@@ -46,7 +47,7 @@ public class Topico {
     private String mensaje;
 
     @Column(name = "fecha_creacion")
-    private LocalDateTime fecha_creacion = LocalDateTime.now();
+    private LocalDateTime fechaCreacion = LocalDateTime.now();
 
     @Enumerated
     @Column(name = "estado")
@@ -66,10 +67,24 @@ public class Topico {
     public Topico(DatosRegistroTopico datosRegistroTopico) {
         this.titulo = datosRegistroTopico.titulo();
         this.mensaje = datosRegistroTopico.mensaje();
-        this.fecha_creacion = getFecha_creacion();
         this.estado = datosRegistroTopico.estado();
         this.autor = datosRegistroTopico.autor();
         this.curso = datosRegistroTopico.curso();
+    }
+
+    public void actualizarDatos(DatosActualizarTopico datosActualizarTopico) {
+        if (datosActualizarTopico.titulo() != null){
+            this.titulo = datosActualizarTopico.titulo();
+        }
+        if (datosActualizarTopico.mensaje()!= null){
+            this.mensaje = datosActualizarTopico.mensaje();
+        }
+        if(datosActualizarTopico.estado() != null){
+            this.estado = datosActualizarTopico.estado();
+        }
+        if(datosActualizarTopico.curso() != null){
+            this.curso = new Curso(datosActualizarTopico.curso().getCursoId());
+        }
     }
 
 }

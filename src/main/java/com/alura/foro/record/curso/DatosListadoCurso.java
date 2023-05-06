@@ -1,5 +1,5 @@
 
-package com.alura.foro.record;
+package com.alura.foro.record.curso;
 
 import com.alura.foro.model.Curso;
 

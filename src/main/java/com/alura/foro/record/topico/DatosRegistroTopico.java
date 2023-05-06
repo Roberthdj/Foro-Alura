@@ -1,5 +1,5 @@
 
-package com.alura.foro.record;
+package com.alura.foro.record.topico;
 
 import com.alura.foro.model.Curso;
 import com.alura.foro.model.StatusTopico;

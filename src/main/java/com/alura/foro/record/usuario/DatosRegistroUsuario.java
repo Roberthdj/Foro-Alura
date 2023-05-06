@@ -1,5 +1,5 @@
 
-package com.alura.foro.record;
+package com.alura.foro.record.usuario;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

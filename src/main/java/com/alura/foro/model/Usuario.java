@@ -1,7 +1,7 @@
 
 package com.alura.foro.model;
 
-import com.alura.foro.record.DatosRegistroUsuario;
+import com.alura.foro.record.usuario.DatosRegistroUsuario;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
