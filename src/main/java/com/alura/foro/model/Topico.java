@@ -24,12 +24,10 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity(name = "Topico")
 @Table(name = "topicos")
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -61,8 +59,12 @@ public class Topico {
     @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    @OneToMany(mappedBy = "topico")
+    @OneToMany(mappedBy = "topico", fetch = FetchType.LAZY)
     private Set<Respuesta> respuestas = new HashSet<>();
+
+    public Topico(Long topicoId) {
+        this.topicoId = topicoId;
+    }
 
     public Topico(DatosRegistroTopico datosRegistroTopico) {
         this.titulo = datosRegistroTopico.titulo();

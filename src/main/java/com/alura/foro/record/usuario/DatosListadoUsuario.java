@@ -6,7 +6,7 @@ import com.alura.foro.model.Usuario;
 public record DatosListadoUsuario(Long id, String nombre, String email) {
 
     public DatosListadoUsuario(Usuario usuario) {
-        this(usuario.getUsuarioId(), usuario.getNombre(),usuario.getEmail());
+        this(usuario.getUsuarioId(), usuario.getNombre(), usuario.getEmail());
     }
 
 }

@@ -5,7 +5,7 @@
 
 CREATE TABLE respuestas (
     respuesta_id BIGINT NOT NULL AUTO_INCREMENT,   
-    respuesta_mensaje VARCHAR(300) NOT NULL UNIQUE,
+    mensaje VARCHAR(300) NOT NULL UNIQUE,
     fecha_creacion DATETIME NOT NULL,
     solucion BOOLEAN NOT NULL, 
     topico_id BIGINT NOT NULL,

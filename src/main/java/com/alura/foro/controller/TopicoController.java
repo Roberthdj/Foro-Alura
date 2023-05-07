@@ -62,6 +62,12 @@ public class TopicoController {
     public ResponseEntity<DatosListadoTopico> retornaDatosTopico(@PathVariable Long id) {
         if (topicoRepository.existsById(id)) {
             Topico topico = topicoRepository.getReferenceById(id);
+    //<editor-fold defaultstate="collapsed" desc="aclaración">
+        /*
+            Usamos DatosListadoTopico en lugar de DatosRespuestaTopico
+            por su estructura que cumple con los requerimientos
+        */
+    //</editor-fold>
             var datosTopico = new DatosListadoTopico(
                     topico.getTopicoId(),
                     topico.getTitulo(),

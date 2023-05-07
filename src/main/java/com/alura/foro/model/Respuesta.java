@@ -1,6 +1,8 @@
 
 package com.alura.foro.model;
 
+import com.alura.foro.record.respuesta.DatosActualizarRespuesta;
+import com.alura.foro.record.respuesta.DatosRegistroRespuesta;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -45,5 +47,26 @@ public class Respuesta {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "autor_id")
     private Usuario autor;
+
+    public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta) {
+        this.mensaje = datosRegistroRespuesta.mensaje();
+        this.topico = new Topico(datosRegistroRespuesta.topico().getTopicoId());
+        this.autor = new Usuario(datosRegistroRespuesta.autor().getUsuarioId());
+    }
+
+    public void actualizarDatos(DatosActualizarRespuesta datosActualizarRespuesta) {
+        if (datosActualizarRespuesta.mensaje() != null) {
+            this.mensaje = datosActualizarRespuesta.mensaje();
+        }
+        if (datosActualizarRespuesta.solucion() != null) {
+            this.solucion = datosActualizarRespuesta.solucion();
+        }
+        if (datosActualizarRespuesta.topico() != null) {
+            this.topico = new Topico(datosActualizarRespuesta.topico().getTopicoId());
+        }
+        if (datosActualizarRespuesta.autor() != null) {
+            this.autor = new Usuario(datosActualizarRespuesta.autor().getUsuarioId());
+        }
+    }
 
 }

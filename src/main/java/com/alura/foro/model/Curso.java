@@ -13,12 +13,10 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity(name = "Curso")
 @Table(name = "cursos")
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -45,10 +43,10 @@ public class Curso {
     }
 
     public void actualizarDatos(DatosActualizarCurso datosActualizarCurso) {
-        if(datosActualizarCurso.nombre()!=null){
+        if (datosActualizarCurso.nombre() != null) {
             this.nombre = datosActualizarCurso.nombre();
         }
-        if(datosActualizarCurso.categoria()!= null){
+        if (datosActualizarCurso.categoria() != null) {
             this.categoria = datosActualizarCurso.categoria();
         }
     }
