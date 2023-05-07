@@ -40,7 +40,7 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 </p>
 
 ## Funcionalidades
-- <p align="justify"><strong>Funcionalidad 1:USUARIOS</strong> <br>
+- <p align="justify"><strong>Funcionalidad 1: USUARIOS</strong> <br>
    <p align="justify">
    </p>
 </p>
@@ -59,6 +59,19 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
       <p align="justify">
       </p>
 </p>
+
+   ### 
+     EndPoints:
+     - Post:   http://localhost:8080/[path](#path)
+     - Get:    http://localhost:8080/path
+     - Get:    http://localhost:8080/path/id
+     - Put:    http://localhost:8080/path
+     - Delete: http://localhost:8080/path/id
+     
+    ##path:  usuario
+            curso
+            topico
+            respuesta
 
 ## Aplicación
 
@@ -95,13 +108,13 @@ Tu puedes acceder al [codigo fuente](https://github.com/Roberthdj/Hotel-Alura) d
 
 Para correr `Conversor Alura`en tu máquina local:
 
-- Crea un nuevo proyecto de nombre ConvertidorAlura en el IDE que estes usando para trabajar, "asegurate de no crear un Main Class"
+- Crea un nuevo proyecto de nombre Foro-Alura en el IDE que estes usando para trabajar.
 
 - Abre una terminal de git en la ubicacion donde se aloja el nuevo proyecto que creaste
 
 - Inicializa el proyecto en la teminal con la linea: git init
 
-- Conectate al repositorio remoto con la linea: git remote add origin https://github.com/Roberthdj/Hotel-Alura.git
+- Conectate al repositorio remoto con la linea: git remote add origin https://github.com/Roberthdj/Foro-Alura.git
 
 - Luego la linea: git remote -v
 
@@ -109,15 +122,6 @@ Para correr `Conversor Alura`en tu máquina local:
 
 Si todo va bien, tu nuevo proyecto se sincronizo correctamente con el repositorio!
 
-### 
-      Utilizando Mysql se debe crear la base de datos, solo se debe ejecutar el script hotel.sql que se encuentra en sqlDatabase, 
-      para ingresar a la aplicación se utiliza uno de los dos usuarios creados con el script.
-      
-      Usuario:    admin
-      Contraseña: admin
-
-      Usuario:    usuario1
-      Contraseña: 123456  
 
 ## Desarrollado por
 
