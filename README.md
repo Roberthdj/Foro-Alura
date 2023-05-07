@@ -62,13 +62,13 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 
    ### 
      EndPoints:
-     - Post:   http://localhost:8080/[path](#path)
+     - Post:   http://localhost:8080/[path](####path)
      - Get:    http://localhost:8080/path
      - Get:    http://localhost:8080/path/id
      - Put:    http://localhost:8080/path
      - Delete: http://localhost:8080/path/id
      
-    ##path:  usuario
+    #####path:  usuario
             curso
             topico
             respuesta
