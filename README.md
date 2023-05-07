@@ -40,38 +40,24 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 </p>
 
 ## Funcionalidades
-- <p align="justify"><strong>Funcionalidad 1: USUARIOS</strong> <br>
-   <p align="justify">
+- <p align="justify"><strong>Funcionalidad:</strong> <br>
+   <p align="justify"> Mediante la creación de varios endpoints para cada entidad creada, que para el caso seran Usuario, Curso, Topico y Respuesta
    </p>
 </p>
 
-- <p align="justify"><strong>Funcionalidad 2: CURSOS</strong> <br>
-   <p align="justify">
-   </p>
-</p>
-
-- <p align="justify"><strong>Funcionalidad 3: TOPICOS</strong> <br>
-   <p align="justify">
-   </p>
-</p>
-
-- <p align="justify"><strong>Funcionalidad 4: RESPUESTAS</strong> <br>
-      <p align="justify">
-      </p>
-</p>
 
    ### 
      EndPoints:
-     - Post:   http://localhost:8080/[path](####path)
+     - Post:   http://localhost:8080/path
      - Get:    http://localhost:8080/path
      - Get:    http://localhost:8080/path/id
      - Put:    http://localhost:8080/path
      - Delete: http://localhost:8080/path/id
      
-    #####path:  usuario
-            curso
-            topico
-            respuesta
+    path creados:  usuario
+                   curso
+                   topico
+                   respuesta
 
 ## Aplicación
 
@@ -102,11 +88,11 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 
 ## Acceso al proyecto
 
-Tu puedes acceder al [codigo fuente](https://github.com/Roberthdj/Hotel-Alura) del proyecto o descargar sus [etapas](https://github.com/Roberthdj/Hotel-Alura/tags) de desarrollo.
+Tu puedes acceder aqui [al codigo fuente](https://github.com/Roberthdj/Foro-Alura) del proyecto. 
 
 ## Abrir un proyecto local
 
-Para correr `Conversor Alura`en tu máquina local:
+Para correr `Foro Alura`en tu máquina local:
 
 - Crea un nuevo proyecto de nombre Foro-Alura en el IDE que estes usando para trabajar.
 
