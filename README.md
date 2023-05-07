@@ -39,13 +39,11 @@ En el vamos a replicar a nivel de back end este proceso, y para eso crearemos un
 Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es muy parecido con lo que desarrollamos en el Hotel Alura, pero ahora usando un framework que va a facilitar mucho nuestro trabajo un nuevo modelo de arquitectura de software conocido como REST.
 </p>
 
-## Funcionalidades
-- <p align="justify"><strong>Funcionalidad:</strong> <br>
-   <p align="justify"> Mediante la creación de varios endpoints para cada entidad creada, que para el caso seran Usuario, Curso, Topico y Respuesta
+## Funcionalidad
+- <p align="justify"><strong>Funcionalidad general:</strong> <br>
+   <p align="justify"> Foro-Alura consta de cuatro entidades (Usuario, Curso, Topico, Respuesta) en las cuales podemos realizar acciones como crear un nuevo registro,    mostrar uno o todos los registros, actualizar y eliminar un registro en particular, para realizar las acciones necesarias para la comunicación con la aplicación se    utiliza la herramienta Postman.
    </p>
 </p>
-
-
    ### 
      EndPoints:
      - Post:   http://localhost:8080/path
@@ -54,10 +52,10 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
      - Put:    http://localhost:8080/path
      - Delete: http://localhost:8080/path/id
      
-    path creados:  usuario
-                   curso
-                   topico
-                   respuesta
+    path:  usuario
+           curso
+           topico
+           respuesta
 
 ## Aplicación
 
@@ -106,7 +104,7 @@ Para correr `Foro Alura`en tu máquina local:
 
 - Finalmente ejecuta la linea: git pull origin master
 
-Si todo va bien, tu nuevo proyecto se sincronizo correctamente con el repositorio!
+Si todo va bien, tu nuevo proyecto se sincronizo correctamente con el repositorio y debes realizar los ajustes necesarios en tu IDE!
 
 
 ## Desarrollado por
