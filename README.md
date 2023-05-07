@@ -39,31 +39,24 @@ En el vamos a replicar a nivel de back end este proceso, y para eso crearemos un
 Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es muy parecido con lo que desarrollamos en el Hotel Alura, pero ahora usando un framework que va a facilitar mucho nuestro trabajo un nuevo modelo de arquitectura de software conocido como REST.
 </p>
 
-* Sistema de autenticación de usuario para que solo usuarios pertenecientes al hotel consigan acceder al sistema.
-* Permitir crear, editar y eliminar una reserva para los clientes.
-* Buscar en la base de datos todas las informaciones tanto de los clientes como de las reservas.
-* Registrar, editar y eliminar datos de los huéspedes.
-* Calcular el valor de la reserva en base a la cantidad de días de la reserva y a una tasa diaria que puede ser asignada por ti y en la moneda local de tu país, por ejemplo, si tenemos una reserva de 3 días y el valor de nuestra diaria son 20$ debemos multiplicar esos 3 días por el valor de la diaria, lo que serían 60$, todo esto deberá ser hecho automáticamente y mostrado al usuario antes de guardar la reserva.
-* Base de datos para almacenar todos los datos pedidos anteriormente.
-
 ## Funcionalidades
-- <p align="justify"><strong>Funcionalidad 1: LOGIN</strong> <br>
-   <p align="justify">Es el primer formulario con el que te encuentras al iniciar la aplicación, en el debes engresar un usuario y contraseña validos y te enviara al      menu de usuario donde encontraras las opciones para ingrsar al sistema de reservas o al sistema de busquedas.
+- <p align="justify"><strong>Funcionalidad 1:USUARIOS</strong> <br>
+   <p align="justify">
    </p>
 </p>
 
-- <p align="justify"><strong>Funcionalidad 2: SISTEMA RESERVAS</strong> <br>
-   <p align="justify">Se encarga de crear una nueva reserva en él se ingresan las fechas de CHECK-IN y CHECK-OUT ya sea eligiéndola del desplegable o manualmente          teniendo en cuenta el formato ‘yyyy-mm-dd’, también muestra el tipo de habitación y la forma de pago mediante listas desplegables, el valor a pagar por la reserva      se generará de forma automática al seleccionar la fecha de CHECK-OUT la cual debe ser mayor o igual a la fecha de CHECK-IN.
+- <p align="justify"><strong>Funcionalidad 2: CURSOS</strong> <br>
+   <p align="justify">
    </p>
 </p>
 
-- <p align="justify"><strong>Funcionalidad 3: REGISTRO HUESPED</strong> <br>
-   <p align="justify">Al generarse una nueva reserva en esta se genera un identificador de forma automática, el cual es trasferido al REGISTRO HUESPED y se muestra        como Número de reserva, el usuario del sistema debe completar todos los campos restantes y confirmar la creación de la reserva, si se sale de REGISTRO HUESPED a        otro formulario o termina la ejecución del programa mediante el botón salir la reserva creada se eliminará de forma inmediata.
+- <p align="justify"><strong>Funcionalidad 3: TOPICOS</strong> <br>
+   <p align="justify">
    </p>
 </p>
 
-- <p align="justify"><strong>Funcionalidad 4: SISTEMA DE BUSQUEDA</strong> <br>
-      <p align="justify">Aquí se realizan las búsquedas usando como criterio de búsqueda el número de reserva para las reservas y del apellido para los huéspedes,           también es posible eliminar un registro de cualquiera de las opciones existentes seleccionando el registro y haciendo clic en el botón eliminar, para editar se         debe hacer doble clic en el campo del registro que se desee editar ingresar la nueva información y hacer clic fuera de la celda, pero dentro del registro,             luego de esto hacer clic en el botón editar.
+- <p align="justify"><strong>Funcionalidad 4: RESPUESTAS</strong> <br>
+      <p align="justify">
       </p>
 </p>
 
@@ -86,6 +79,8 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 - <a href="https://netbeans.apache.org/" target="_blank"> <img src="https://netbeans.apache.org/images/apache-netbeans.svg" alt="netbeans" width="40" height="40"/> --> NetBeans IDE 14</a>
 
 - <a href="https://www.mysql.com/" target="_blank"> <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="netbeans" width="40" height="40"/> --> Ver. 8.0.32</a>
+
+- <a href="https://www.postman.com/" target="_blank"> <img src="https://netbeans.apache.org/images/apache-netbeans.svg" alt="netbeans" width="40" height="40"/> --> Postman</a>
 
 ###
 
