@@ -1,5 +1,5 @@
 <div align="left">
-<h1><img src="https://github.com/Roberthdj/Hotel-Alura/blob/master/src/imagenes/Ha-100px.png" alt="hotel_alura" width="100" height="100"/>  HOTEL ALURA</h1> 
+<h1><img src="https://github.com/Roberthdj/Hotel-Alura/blob/master/src/imagenes/Ha-100px.png" alt="hotel_alura" width="100" height="100"/>  FORO ALURA</h1> 
 </div>
 
 <hr>
@@ -28,7 +28,15 @@
 
 <p align="justify">
 Este proyecto se desarrolla con la finalidad de llevar al campo práctico los contenidos estudiados durante el desarrollo del curso de formación Java del programa Oracle Next Education ONE.<br><br>
-El Hotel Alura conocido por su espectaculares instalaciones y paquetes promocionales para Desarrolladores de Software está teniendo problemas para llevar el control de las reservaciones hechas por sus clientes, por eso solicitan nuestra ayuda para desarrollar un sistema de reserva que contenga: 
+En el vamos a replicar a nivel de back end este proceso, y para eso crearemos una API REST usando Spring, nuestra API va a centrarse específicamente en los tópicos, y debe permitir a los usuarios:
+
+- Crear un nuevo tópico
+- Mostrar todos los tópicos creados
+- Mostrar un tópico específico
+- Actualizar un tópico
+- Eliminar un tópico
+
+Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es muy parecido con lo que desarrollamos en el Hotel Alura, pero ahora usando un framework que va a facilitar mucho nuestro trabajo un nuevo modelo de arquitectura de software conocido como REST.
 </p>
 
 * Sistema de autenticación de usuario para que solo usuarios pertenecientes al hotel consigan acceder al sistema.
