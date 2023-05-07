@@ -44,6 +44,8 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
    <p align="justify"> Foro-Alura consta de cuatro entidades (Usuario, Curso, Topico, Respuesta) en las cuales podemos realizar acciones como crear un nuevo registro,    mostrar uno o todos los registros, actualizar y eliminar un registro en particular, para realizar las acciones necesarias para la comunicación con la aplicación se    utiliza la herramienta Postman.
    </p>
 </p>
+
+
    ### 
      EndPoints:
      - Post:   http://localhost:8080/path
