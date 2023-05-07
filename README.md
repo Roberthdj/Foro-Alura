@@ -111,4 +111,4 @@ Si todo va bien, tu nuevo proyecto se sincronizo correctamente con el repositori
 
 ## Desarrollado por
 
-[<img style ="border-radius: 20px" src="https://avatars.githubusercontent.com/u/120141795?s=400&u=1224e7aef9eef9f87a1598bd2168761487581ef4&v=4" width=115><br><sub>Roberth de Jesus Rodriguez Castro</sub>](https://github.com/roberthdj)
+[<img style ="border-radius: 20px" src="https://avatars.githubusercontent.com/u/120141795?v=4" width=115><br><sub>Roberth de Jesus Rodriguez Castro</sub>](https://github.com/roberthdj)
