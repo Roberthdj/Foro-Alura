@@ -1,5 +1,5 @@
 <div align="left">
-<h1><img src="https://github.com/Roberthdj/Hotel-Alura/blob/master/src/imagenes/Ha-100px.png" alt="hotel_alura" width="100" height="100"/>  FORO ALURA</h1> 
+<h1><img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/Inicio.png" alt="hotel_alura" width="100" height="100"/>  FORO ALURA</h1> 
 </div>
 
 <hr>
@@ -64,9 +64,12 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 
 <div align="center">
 
-  <img src="https://github.com/Roberthdj/Hotel-Alura/blob/master/img-readme/Reserva.png" alt="netbeans" width="350" height="250"/>
-  <img src="https://github.com/Roberthdj/Hotel-Alura/blob/master/img-readme/Huesped.png" alt="netbeans" width="350" height="250"/>
-  <img src="https://github.com/Roberthdj/Hotel-Alura/blob/master/img-readme/Busqueda.png" alt="netbeans" width="350" height="250"/>  
+  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/estructura.png" alt="Estructura_proyecto" width="350" height="250"/>
+  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/PostTopico.png" alt="Registrar_un_topico" width="350" height="250"/>
+  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/GetRespuesta.png" alt="Mostrar_respuestas" width="350" height="250"/>  
+  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/GetUnUsuario.png" alt="Mostrar_un_usuario" width="350" height="250"/>  
+  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/PutCurso.png" alt="Actualizar_un_curso" width="350" height="250"/>  
+  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/DeleteRespuesta.png" alt="Eliminar_una_respuesta" width="350" height="250"/>  
 
 </div>
 
@@ -80,7 +83,7 @@ Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es mu
 
 - <a href="https://www.mysql.com/" target="_blank"> <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="netbeans" width="40" height="40"/> --> Ver. 8.0.32</a>
 
-- <a href="https://www.postman.com/" target="_blank"> <img src="https://netbeans.apache.org/images/apache-netbeans.svg" alt="netbeans" width="40" height="40"/> --> Postman</a>
+- <a href="https://www.postman.com/" target="_blank"> <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/postman.svg" alt="netbeans" width="40" height="40"/> --> Postman</a>
 
 ###
 
