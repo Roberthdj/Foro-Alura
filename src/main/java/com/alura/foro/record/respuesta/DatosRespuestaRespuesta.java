@@ -13,13 +13,4 @@ public record DatosRespuestaRespuesta(
         Topico topico,
         Usuario autor) {
 
-    public DatosRespuestaRespuesta(Long id, String mensaje, LocalDateTime fechaCreacion, Boolean solucion, Topico topico, Usuario autor) {
-        this.id = id;
-        this.mensaje = mensaje;
-        this.fechaCreacion = fechaCreacion;
-        this.solucion = solucion;
-        this.topico = new Topico(topico.getTopicoId());
-        this.autor = new Usuario(autor.getUsuarioId());
-    }
-
 }
