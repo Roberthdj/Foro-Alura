@@ -8,6 +8,7 @@ import com.alura.foro.record.topico.DatosActualizarTopico;
 import com.alura.foro.record.topico.DatosRegistroTopico;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -47,7 +48,7 @@ public class Topico {
     @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion = LocalDateTime.now();
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "estado")
     private StatusTopico estado = StatusTopico.NO_RESPONDIDO;
 

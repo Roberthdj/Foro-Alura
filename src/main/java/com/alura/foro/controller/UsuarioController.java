@@ -7,12 +7,16 @@ import com.alura.foro.record.usuario.DatosActualizarUsuario;
 import com.alura.foro.record.usuario.DatosListadoUsuario;
 import com.alura.foro.record.usuario.DatosRespuestaUsuario;
 import com.alura.foro.repository.UsuarioRepository;
+import com.alura.foro.util.Util;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,7 +57,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DatosRespuestaUsuario> RetornarDatosUsuario(@PathVariable Long id) {
+    public ResponseEntity<?> RetornarDatosUsuario(@PathVariable Long id) {
         if (usuarioRepository.existsById(id)) {
             Usuario usuario = usuarioRepository.getReferenceById(id);
             var datosUsuario = new DatosRespuestaUsuario(
@@ -63,19 +67,22 @@ public class UsuarioController {
             );
             return ResponseEntity.ok(datosUsuario);
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity(new Util().message404(), HttpStatus.NOT_FOUND);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity actualizarUsuario(@RequestBody @Valid DatosActualizarUsuario datosActualizarUsuario) {
-        Usuario usuario = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
-        usuario.actualizarDatos(datosActualizarUsuario);
-        return ResponseEntity.ok(new DatosRespuestaUsuario(
-                usuario.getUsuarioId(),
-                usuario.getNombre(),
-                usuario.getEmail())
-        );
+        if (usuarioRepository.existsById(datosActualizarUsuario.id())) {
+            Usuario usuario = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
+            usuario.actualizarDatos(datosActualizarUsuario);
+            return ResponseEntity.ok(new DatosRespuestaUsuario(
+                    usuario.getUsuarioId(),
+                    usuario.getNombre(),
+                    usuario.getEmail())
+            );
+        }
+        return new ResponseEntity(new Util().message404(), HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")
@@ -86,7 +93,7 @@ public class UsuarioController {
             usuarioRepository.delete(usuario);
             return ResponseEntity.noContent().build();
         }
-        return ResponseEntity.notFound().build();
+        return new ResponseEntity(new Util().message404(), HttpStatus.NOT_FOUND);
     }
 
 }
