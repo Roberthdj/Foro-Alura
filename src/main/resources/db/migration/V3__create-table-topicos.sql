@@ -11,5 +11,7 @@ CREATE TABLE topicos (
     estado VARCHAR(50) NOT NULL,
     autor_id BIGINT NOT NULL,
     curso_id BIGINT NOT NULL,
-    PRIMARY KEY (topico_id)
+    PRIMARY KEY (topico_id),
+    FOREIGN KEY(autor_id) REFERENCES usuarios(usuario_id) ON DELETE CASCADE,
+    FOREIGN KEY(curso_id) REFERENCES cursos(curso_id) ON DELETE CASCADE
 )ENGINE=InnoDB;

@@ -59,6 +59,22 @@ public class RespuestaController {
         return ResponseEntity.ok(respuestaRepository.findAll(paginacion).map(DatosListadoRespuesta::new));
     }
 
+    @GetMapping("/busca_topico/{topico}")
+    public ResponseEntity<Page<DatosListadoRespuesta>> listadoRespuestaPorTopico(@PathVariable Topico topico,
+            @PageableDefault(size = 10, sort = "respuestaId") Pageable paginacion) {
+        return ResponseEntity.ok(respuestaRepository
+                .findByTopicoEquals(new Topico(topico.getTopicoId()), paginacion)
+                .map(DatosListadoRespuesta::new));
+    }
+
+    @GetMapping("/busca_autor/{autor}")
+    public ResponseEntity<Page<DatosListadoRespuesta>> listadoRespuestaPorAutor(@PathVariable Usuario autor,
+            @PageableDefault(size = 10, sort = "respuestaId") Pageable paginacion) {
+        return ResponseEntity.ok(respuestaRepository
+                .findByAutorEquals(new Usuario(autor.getUsuarioId()), paginacion)
+                .map(DatosListadoRespuesta::new));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> RetornarDatosRespuesta(@PathVariable Long id) {
         if (respuestaRepository.existsById(id)) {
