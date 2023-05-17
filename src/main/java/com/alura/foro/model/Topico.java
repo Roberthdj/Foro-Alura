@@ -6,6 +6,7 @@ import com.alura.foro.model.Respuesta;
 import com.alura.foro.model.Usuario;
 import com.alura.foro.record.topico.DatosActualizarTopico;
 import com.alura.foro.record.topico.DatosRegistroTopico;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -60,7 +61,7 @@ public class Topico {
     @JoinColumn(name = "curso_id")
     private Curso curso;
 
-    @OneToMany(mappedBy = "topico", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL)
     private Set<Respuesta> respuestas = new HashSet<>();
 
     public Topico(Long topicoId) {

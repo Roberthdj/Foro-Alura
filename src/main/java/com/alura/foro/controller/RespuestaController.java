@@ -9,14 +9,12 @@ import com.alura.foro.record.respuesta.DatosListadoRespuesta;
 import com.alura.foro.record.respuesta.DatosRegistroRespuesta;
 import com.alura.foro.record.respuesta.DatosRespuestaRespuesta;
 import com.alura.foro.repository.RespuestaRepository;
-import com.alura.foro.util.Util;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import java.net.URI;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -77,46 +75,37 @@ public class RespuestaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> RetornarDatosRespuesta(@PathVariable Long id) {
-        if (respuestaRepository.existsById(id)) {
-            Respuesta respuesta = respuestaRepository.getReferenceById(id);
-            var datosRespuesta = new DatosListadoRespuesta(
-                    respuesta.getRespuestaId(),
-                    respuesta.getMensaje(),
-                    respuesta.getFechaCreacion().toString(),
-                    respuesta.getSolucion()
-            );
-            return ResponseEntity.ok(datosRespuesta);
-        }
-        return new ResponseEntity(new Util().message404(), HttpStatus.NOT_FOUND);
+        Respuesta respuesta = respuestaRepository.getReferenceById(id);
+        var datosRespuesta = new DatosListadoRespuesta(
+                respuesta.getRespuestaId(),
+                respuesta.getMensaje(),
+                respuesta.getFechaCreacion().toString(),
+                respuesta.getSolucion()
+        );
+        return ResponseEntity.ok(datosRespuesta);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity actualizarDatos(@RequestBody @Valid DatosActualizarRespuesta datosActualizarRespuesta) {
-        if (respuestaRepository.existsById(datosActualizarRespuesta.id())) {
-            Respuesta respuesta = respuestaRepository.getReferenceById(datosActualizarRespuesta.id());
-            respuesta.actualizarDatos(datosActualizarRespuesta);
-            return ResponseEntity.ok(new DatosRespuestaRespuesta(
-                    respuesta.getRespuestaId(),
-                    respuesta.getMensaje(),
-                    respuesta.getFechaCreacion(),
-                    respuesta.getSolucion(),
-                    new Topico(respuesta.getTopico().getTopicoId()),
-                    new Usuario(respuesta.getAutor().getUsuarioId()))
-            );
-        }
-        return new ResponseEntity(new Util().message404(), HttpStatus.NOT_FOUND);
+        Respuesta respuesta = respuestaRepository.getReferenceById(datosActualizarRespuesta.id());
+        respuesta.actualizarDatos(datosActualizarRespuesta);
+        return ResponseEntity.ok(new DatosRespuestaRespuesta(
+                respuesta.getRespuestaId(),
+                respuesta.getMensaje(),
+                respuesta.getFechaCreacion(),
+                respuesta.getSolucion(),
+                new Topico(respuesta.getTopico().getTopicoId()),
+                new Usuario(respuesta.getAutor().getUsuarioId()))
+        );
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity eliminarRespuesta(@PathVariable Long id) {
-        if (respuestaRepository.existsById(id)) {
-            Respuesta respuesta = respuestaRepository.getReferenceById(id);
-            respuestaRepository.delete(respuesta);
-            return ResponseEntity.noContent().build();
-        }
-        return new ResponseEntity(new Util().message404(), HttpStatus.NOT_FOUND);
+        Respuesta respuesta = respuestaRepository.getReferenceById(id);
+        respuestaRepository.delete(respuesta);
+        return ResponseEntity.noContent().build();
     }
 
 }
