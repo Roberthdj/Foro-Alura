@@ -1,5 +1,5 @@
 
-package com.alura.foro.config;
+package com.alura.foro.config.errores;
 
 import jakarta.persistence.EntityNotFoundException;
 import java.util.HashMap;

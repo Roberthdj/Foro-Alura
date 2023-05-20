@@ -1,6 +1,7 @@
 
 package com.alura.foro.controller;
 
+import com.alura.foro.config.errores.TratadorDeErrores;
 import com.alura.foro.model.Respuesta;
 import com.alura.foro.model.Topico;
 import com.alura.foro.model.Usuario;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/respuesta")
+@RequestMapping("/foro/respuesta")
 public class RespuestaController {
 
     private final RespuestaRepository respuestaRepository;
@@ -45,8 +46,8 @@ public class RespuestaController {
                 respuesta.getMensaje(),
                 respuesta.getFechaCreacion(),
                 respuesta.getSolucion(),
-                new Topico(respuesta.getTopico().getTopicoId()),
-                new Usuario(respuesta.getAutor().getUsuarioId())
+                new Topico(respuesta.getTopico().getTopicoId()).getTopicoId(),
+                new Usuario(respuesta.getAutor().getUsuarioId()).getUsuarioId()
         );
         URI url = uriComponentsBuilder.path("/respuesta/{id}").buildAndExpand(respuesta.getRespuestaId()).toUri();
         return ResponseEntity.created(url).body(datosRespuestaRespuesta);
@@ -57,7 +58,7 @@ public class RespuestaController {
         return ResponseEntity.ok(respuestaRepository.findAll(paginacion).map(DatosListadoRespuesta::new));
     }
 
-    @GetMapping("/busca_topico/{topico}")
+    @GetMapping("/topico/{topico}")
     public ResponseEntity<Page<DatosListadoRespuesta>> listadoRespuestaPorTopico(@PathVariable Topico topico,
             @PageableDefault(size = 10, sort = "respuestaId") Pageable paginacion) {
         return ResponseEntity.ok(respuestaRepository
@@ -65,7 +66,7 @@ public class RespuestaController {
                 .map(DatosListadoRespuesta::new));
     }
 
-    @GetMapping("/busca_autor/{autor}")
+    @GetMapping("/autor/{autor}")
     public ResponseEntity<Page<DatosListadoRespuesta>> listadoRespuestaPorAutor(@PathVariable Usuario autor,
             @PageableDefault(size = 10, sort = "respuestaId") Pageable paginacion) {
         return ResponseEntity.ok(respuestaRepository
@@ -95,17 +96,20 @@ public class RespuestaController {
                 respuesta.getMensaje(),
                 respuesta.getFechaCreacion(),
                 respuesta.getSolucion(),
-                new Topico(respuesta.getTopico().getTopicoId()),
-                new Usuario(respuesta.getAutor().getUsuarioId()))
+                new Topico(respuesta.getTopico().getTopicoId()).getTopicoId(),
+                new Usuario(respuesta.getAutor().getUsuarioId()).getUsuarioId())
         );
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity eliminarRespuesta(@PathVariable Long id) {
-        Respuesta respuesta = respuestaRepository.getReferenceById(id);
-        respuestaRepository.delete(respuesta);
-        return ResponseEntity.noContent().build();
+        if (respuestaRepository.existsById(id)) {
+            Respuesta respuesta = respuestaRepository.getReferenceById(id);
+            respuestaRepository.delete(respuesta);
+            return ResponseEntity.noContent().build();
+        }
+        return new TratadorDeErrores().tratarError404();
     }
 
 }

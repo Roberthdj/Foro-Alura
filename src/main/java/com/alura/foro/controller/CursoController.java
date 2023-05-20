@@ -1,6 +1,7 @@
 
 package com.alura.foro.controller;
 
+import com.alura.foro.config.errores.TratadorDeErrores;
 import com.alura.foro.model.Curso;
 import com.alura.foro.record.curso.DatosActualizarCurso;
 import com.alura.foro.record.curso.DatosListadoCurso;
@@ -13,6 +14,7 @@ import java.net.URI;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/curso")
+@RequestMapping("/foro/curso")
 public class CursoController {
 
     private final CursoRepository cursoRepository;
@@ -53,7 +55,7 @@ public class CursoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> RetornaDatosCurso(@PathVariable Long id) {
+    public ResponseEntity<DatosRespuestaCurso> RetornaDatosCurso(@PathVariable Long id) {
         Curso curso = cursoRepository.getReferenceById(id);
         var datosCurso = new DatosRespuestaCurso(
                 curso.getCursoId(),
@@ -78,9 +80,12 @@ public class CursoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity eliminarCurso(@PathVariable Long id) {
-        Curso curso = cursoRepository.getReferenceById(id);
-        cursoRepository.delete(curso);
-        return ResponseEntity.noContent().build();
+        if (cursoRepository.existsById(id)) {
+            Curso curso = cursoRepository.getReferenceById(id);
+            cursoRepository.delete(curso);
+            return ResponseEntity.noContent().build();
+        }
+        return new TratadorDeErrores().tratarError404();
     }
 
 }

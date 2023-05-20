@@ -1,6 +1,7 @@
 
 package com.alura.foro.controller;
 
+import com.alura.foro.config.errores.TratadorDeErrores;
 import com.alura.foro.record.usuario.DatosRegistroUsuario;
 import com.alura.foro.model.Usuario;
 import com.alura.foro.record.usuario.DatosActualizarUsuario;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/foro/usuario")
 public class UsuarioController {
 
     private final UsuarioRepository usuarioRepository;
@@ -54,33 +55,36 @@ public class UsuarioController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> RetornarDatosUsuario(@PathVariable Long id) {
-            Usuario usuario = usuarioRepository.getReferenceById(id);
-            var datosUsuario = new DatosRespuestaUsuario(
-                    usuario.getUsuarioId(),
-                    usuario.getNombre(),
-                    usuario.getEmail()
-            );
-            return ResponseEntity.ok(datosUsuario);
+        Usuario usuario = usuarioRepository.getReferenceById(id);
+        var datosUsuario = new DatosRespuestaUsuario(
+                usuario.getUsuarioId(),
+                usuario.getNombre(),
+                usuario.getEmail()
+        );
+        return ResponseEntity.ok(datosUsuario);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity actualizarUsuario(@RequestBody @Valid DatosActualizarUsuario datosActualizarUsuario) {
-            Usuario usuario = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
-            usuario.actualizarDatos(datosActualizarUsuario);
-            return ResponseEntity.ok(new DatosRespuestaUsuario(
-                    usuario.getUsuarioId(),
-                    usuario.getNombre(),
-                    usuario.getEmail())
-            );
+        Usuario usuario = usuarioRepository.getReferenceById(datosActualizarUsuario.id());
+        usuario.actualizarDatos(datosActualizarUsuario);
+        return ResponseEntity.ok(new DatosRespuestaUsuario(
+                usuario.getUsuarioId(),
+                usuario.getNombre(),
+                usuario.getEmail())
+        );
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity eliminarUsuario(@PathVariable Long id) {
+        if (usuarioRepository.existsById(id)) {
             Usuario usuario = usuarioRepository.getReferenceById(id);
             usuarioRepository.delete(usuario);
             return ResponseEntity.noContent().build();
+        }
+        return new TratadorDeErrores().tratarError404();
     }
 
 }

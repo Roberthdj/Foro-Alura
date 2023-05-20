@@ -1,6 +1,7 @@
 
 package com.alura.foro.controller;
 
+import com.alura.foro.config.errores.TratadorDeErrores;
 import com.alura.foro.model.Curso;
 import com.alura.foro.model.Topico;
 import com.alura.foro.model.Usuario;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
-@RequestMapping("/topico")
+@RequestMapping("/foro/topico")
 public class TopicoController {
 
     private final TopicoRepository topicoRepository;
@@ -46,8 +47,8 @@ public class TopicoController {
                 topico.getMensaje(),
                 topico.getFechaCreacion(),
                 topico.getEstado(),
-                new Usuario(topico.getAutor().getUsuarioId()),
-                new Curso(topico.getCurso().getCursoId())
+                new Usuario(topico.getAutor().getUsuarioId()).getUsuarioId(),
+                new Curso(topico.getCurso().getCursoId()).getCursoId()
         );
         URI url = uriComponentsBuilder.path("/topico/{id}").buildAndExpand(topico.getTopicoId()).toUri();
         return ResponseEntity.created(url).body(datosRespuestaTopico);
@@ -58,7 +59,7 @@ public class TopicoController {
         return ResponseEntity.ok(topicoRepository.findAll(paginacion).map(DatosListadoTopico::new));
     }
 
-    @GetMapping("/busca_autor/{autor}")
+    @GetMapping("/autor/{autor}")
     public ResponseEntity<Page<DatosListadoTopico>> listadoTopicoPorAutor(@PathVariable Usuario autor,
             @PageableDefault(size = 10, sort = "topicoId") Pageable paginacion) {
         return ResponseEntity.ok(topicoRepository
@@ -66,7 +67,7 @@ public class TopicoController {
                 .map(DatosListadoTopico::new));
     }
 
-    @GetMapping("/busca_curso/{curso}")
+    @GetMapping("/curso/{curso}")
     public ResponseEntity<Page<DatosListadoTopico>> listadoTopicoPorCurso(@PathVariable Curso curso,
             @PageableDefault(size = 10, sort = "topicoId") Pageable paginacion) {
         return ResponseEntity.ok(topicoRepository
@@ -103,17 +104,21 @@ public class TopicoController {
                 topico.getMensaje(),
                 topico.getFechaCreacion(),
                 topico.getEstado(),
-                new Usuario(topico.getAutor().getUsuarioId()),
-                new Curso(topico.getCurso().getCursoId()))
+                new Usuario(topico.getAutor().getUsuarioId()).getUsuarioId(),
+                new Curso(topico.getCurso().getCursoId()).getCursoId())
         );
     }
 
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity eliminarTopico(@PathVariable Long id) {
-        Topico topico = topicoRepository.getReferenceById(id);
-        topicoRepository.delete(topico);
-        return ResponseEntity.noContent().build();
+        if (topicoRepository.existsById(id)) {
+            Topico topico = topicoRepository.getReferenceById(id);
+            topicoRepository.delete(topico);
+            return ResponseEntity.noContent().build();
+        }
+        return new TratadorDeErrores().tratarError404();
+
     }
 
 }
