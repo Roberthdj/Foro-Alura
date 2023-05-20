@@ -23,7 +23,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity(name = "Usuario")
 @Table(name = "usuarios")
 @Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -53,6 +52,10 @@ public class Usuario implements UserDetails {
         this.nombre = datosRegistroUsuario.nombre();
         this.email = datosRegistroUsuario.email();
         this.contrasena = datosRegistroUsuario.contrasena();
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public void actualizarDatos(DatosActualizarUsuario datosActualizarUsuario) {
