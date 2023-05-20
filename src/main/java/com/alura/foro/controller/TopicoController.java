@@ -60,19 +60,17 @@ public class TopicoController {
     }
 
     @GetMapping("/autor/{autor}")
-    public ResponseEntity<Page<DatosListadoTopico>> listadoTopicoPorAutor(@PathVariable Usuario autor,
+    public ResponseEntity<Page<DatosListadoTopico>> listadoTopicoPorAutor(@PathVariable Long autor,
             @PageableDefault(size = 10, sort = "topicoId") Pageable paginacion) {
         return ResponseEntity.ok(topicoRepository
-                .findByAutorEquals(new Usuario(autor.getUsuarioId()), paginacion)
-                .map(DatosListadoTopico::new));
+                .buscarPorAutor(autor, paginacion).map(DatosListadoTopico::new));
     }
 
     @GetMapping("/curso/{curso}")
-    public ResponseEntity<Page<DatosListadoTopico>> listadoTopicoPorCurso(@PathVariable Curso curso,
+    public ResponseEntity<Page<DatosListadoTopico>> listadoTopicoPorCurso(@PathVariable Long curso,
             @PageableDefault(size = 10, sort = "topicoId") Pageable paginacion) {
         return ResponseEntity.ok(topicoRepository
-                .findByCursoEquals(new Curso(curso.getCursoId()), paginacion)
-                .map(DatosListadoTopico::new));
+                .buscarPorCurso(curso, paginacion).map(DatosListadoTopico::new));
     }
 
     @GetMapping("/{id}")

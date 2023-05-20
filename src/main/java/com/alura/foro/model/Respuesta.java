@@ -50,8 +50,8 @@ public class Respuesta {
 
     public Respuesta(DatosRegistroRespuesta datosRegistroRespuesta) {
         this.mensaje = datosRegistroRespuesta.mensaje();
-        this.topico = new Topico(datosRegistroRespuesta.topico().getTopicoId());
-        this.autor = new Usuario(datosRegistroRespuesta.autor().getUsuarioId());
+        this.topico = new Topico(datosRegistroRespuesta.topico());
+        this.autor = new Usuario(datosRegistroRespuesta.autor());
     }
 
     public void actualizarDatos(DatosActualizarRespuesta datosActualizarRespuesta) {
@@ -62,10 +62,10 @@ public class Respuesta {
             this.solucion = datosActualizarRespuesta.solucion();
         }
         if (datosActualizarRespuesta.topico() != null) {
-            this.topico = new Topico(datosActualizarRespuesta.topico().getTopicoId());
+            this.topico = new Topico(datosActualizarRespuesta.topico());
         }
         if (datosActualizarRespuesta.autor() != null) {
-            this.autor = new Usuario(datosActualizarRespuesta.autor().getUsuarioId());
+            this.autor = new Usuario(datosActualizarRespuesta.autor());
         }
     }
 

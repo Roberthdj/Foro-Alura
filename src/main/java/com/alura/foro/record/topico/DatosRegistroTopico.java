@@ -1,9 +1,7 @@
 
 package com.alura.foro.record.topico;
 
-import com.alura.foro.model.Curso;
 import com.alura.foro.model.StatusTopico;
-import com.alura.foro.model.Usuario;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
@@ -15,8 +13,8 @@ public record DatosRegistroTopico(
         @NotNull
         StatusTopico estado,
         @NotNull
-        Usuario autor,
+        Long autor,
         @NotNull
-        Curso curso) {
+        Long curso) {
 
 }
