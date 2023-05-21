@@ -1,114 +1,119 @@
-<div align="left">
-<h1><img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/Inicio.png" alt="hotel_alura" width="100" height="100"/>  FORO ALURA</h1> 
-</div>
 
-<hr>
+---
 
-<p align="center">
-   <img src="http://img.shields.io/static/v1?label=STATUS&message=EN DESARROLLO%20&color=RED&style=for-the-badge" #vitrinedev/>
-</p>
+   <h1>
+      <img src="./readme-img/Inicio.png" alt="Foro alura" width="100" height="100"/>
+      <p align="left">FORO ALURA</p>
+      <p align="right">
+         <img src="http://img.shields.io/static/v1?label=STATUS&message=EN DESARROLLO%20&color=RED&style=for-the-badge" #vitrinedev/>
+      </p>
+   </h1>
 
-## Tópicos 
+---
+
+## Tópicos
 
 - [Descripción del proyecto](#descripción-del-proyecto)
 
-- [Funcionalidades](#funcionalidades)
+- [Funcionalidad](#funcionalidad)
 
-- [Aplicación](#aplicación)
+- [Software de desarrollo](#software-de-desarrollo)
 
-- [Herramientas utilizadas](#herramentas-utilizadas)
+- [Codigo fuente](#codigo-fuente)
 
-- [Acceso al proyecto](#acceso-al-proyecto).
-
-- [Abrir un proyecto local](#abrir-un-proyecto-local)
+- [Abrir localmente](#abrir-localmente)
 
 - [Desarrollado por](#desarrollado-por)
 
-## Descripción del proyecto 
+---
+
+## Descripción del proyecto
 
 <p align="justify">
-Este proyecto se desarrolla con la finalidad de llevar al campo práctico los contenidos estudiados durante el desarrollo del curso de formación Java del programa Oracle Next Education ONE.<br><br>
-En el vamos a replicar a nivel de back end este proceso, y para eso crearemos una API REST usando Spring, nuestra API va a centrarse específicamente en los tópicos, y debe permitir a los usuarios:
+Este proyecto se desarrolla con la finalidad de llevar al campo práctico los contenidos estudiados durante el desarrollo del curso de formación Java del programa Oracle Next Education ONE.
+<br>
+<br>
+Crearemos una API REST usando Spring boot, nuestra API estará compuesta por tópicos sobre un curso específico, estos tópicos, así como las respuestas a estos serán creados por usuarios registrados.
+<br>
+<br>
+Básicamente la funcionalidad de la API está basada en realizar un CRUD que se podrá realizar a cada entidad creada y que funciona así:
 
-- Crear un nuevo tópico
-- Mostrar todos los tópicos creados
-- Mostrar un tópico específico
-- Actualizar un tópico
-- Eliminar un tópico
+* Crear un nuevo registro.
+* Mostrar todos registros.
+* Mostrar un registro específico.
+* Actualizar un registro.
+* Eliminar un registro.
 
-Es lo que conocemos comúnmente como CRUD (CREATE, READ, UPDATE, DELETE) y es muy parecido con lo que desarrollamos en el Hotel Alura, pero ahora usando un framework que va a facilitar mucho nuestro trabajo un nuevo modelo de arquitectura de software conocido como REST.
+También contará con búsquedas personalizadas como:
+
+* Búsqueda de un tópico por id de un curso.
+* Búsqueda de un tópico o respuesta por id de un autor.
+* Búsqueda de una respuesta por id de un tópico.
 </p>
 
 ## Funcionalidad
-- <p align="justify"><strong>Funcionalidad general:</strong> <br>
-   <p align="justify"> Foro-Alura consta de cuatro entidades (Usuario, Curso, Topico, Respuesta) en las cuales podemos realizar acciones como crear un nuevo registro,    mostrar uno o todos los registros, actualizar y eliminar un registro en particular, para realizar las acciones necesarias para la comunicación con la aplicación se    utiliza la herramienta Postman.
-   </p>
-</p>
 
+<p align="justify"> Foro-Alura consta de cuatro entidades (Usuario, Curso, Topico, Respuesta) en las cuales podemos realizar acciones CRUD y en algunas de ellas búsquedas personalizadas, para esto contaremos con endpoints específicos que se encargaran de registrar las informaciones requeridas o simplemente ejecutar la acción necesaria, para una mejor comprensión se hace uso de Swagger para documentar la API.
+<br>
+<br>
+<strong>Puesta en marcha</strong>
 
-   ### 
-     EndPoints:
-     - Post:   http://localhost:8080/path
-     - Get:    http://localhost:8080/path
-     - Get:    http://localhost:8080/path/id
-     - Put:    http://localhost:8080/path
-     - Delete: http://localhost:8080/path/id
-     
-    path:  usuario
-           curso
-           topico
-           respuesta
-
-## Aplicación
-
+* Dar inicio al servidor de Spring boot.
+* Ingresar en http://localhost:8085/doc/swagger-ui/index.html#/
+* Abrir autenticacion-controller y generar el token para autenticarse ingresando usuario y contraseña como se muestra a continuación.
+```json
+{
+   "nombre": "admin",
+   "contrasena": "admin"
+}
+```
 <div align="center">
-
-  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/estructura.png" alt="Estructura_proyecto" width="350" height="250"/>
-  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/PostTopico.png" alt="Registrar_un_topico" width="350" height="250"/>
-  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/GetRespuesta.png" alt="Mostrar_respuestas" width="350" height="250"/>  
-  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/GetUnUsuario.png" alt="Mostrar_un_usuario" width="350" height="250"/>  
-  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/PutCurso.png" alt="Actualizar_un_curso" width="350" height="250"/>  
-  <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/DeleteRespuesta.png" alt="Eliminar_una_respuesta" width="350" height="250"/>  
-
+<img src="./readme-img/token-generado.png" alt="Token generado" width="800" height="300"/>
 </div>
 
-###
+* Buscar el botón authorize en la esquina superior derecha de la página e ingresar el token generado en autenticacion-controller.
 
-## Herramentas utilizadas
+<div align="center">
+<img src="./readme-img/autenticacion.png" alt="Token generado" width="800" height="300"/>
+</div>
 
-- <a href="https://www.java.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> --> Ver. 17.0.6</a> 
+*  Una vez autenticado podras usar cualquiera de los endpoints generados.
+</p>
 
-- <a href="https://netbeans.apache.org/" target="_blank"> <img src="https://netbeans.apache.org/images/apache-netbeans.svg" alt="netbeans" width="40" height="40"/> --> NetBeans IDE 14</a>
+## Software de desarrollo
 
-- <a href="https://www.mysql.com/" target="_blank"> <img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="netbeans" width="40" height="40"/> --> Ver. 8.0.32</a>
+   |<a href="https://www.java.com" target="_blank"> <img src="./readme-img/JDK.svg" alt="JDK17-Java" width="100" hspace="10" vspace="10"/><strong>JDK 17.0.6</strong></a>|<a href="https://netbeans.apache.org/" target="_blank"> <img src="./readme-img/netbeans.svg" alt="NetBeans" width="60" hspace="25"/><strong>NetBeans IDE 14</strong></a>|<a href="https://plugins.netbeans.apache.org/catalogue/?id=4" target="_blank"> <img src="./readme-img/spring-boot.png" alt="NB SpringBoot" width="100" hspace="25" vspace="10"/><strong>NB SpringBoot</strong></a>|
+   |------|------|------|
+   |<a href="https://www.mysql.com/" target="_blank"> <img src="./readme-img/MySQL-.png" alt="MySql" width="70" hspace="25" vspace="10"/><strong>MySQL 8.0.32</strong></a>|<a href="https://swagger.io/" target="_blank"> <img src="./readme-img/Swagger.png" alt="Swagger" width="80" hspace="20" vspace="10"/><strong>Swagger</strong></a>|<a href="https://www.postman.com/" target="_blank"> <img src="./readme-img/postman.svg" alt="Postman" width="90" hspace="10" vspace="10"/><strong>Postman</strong></a>|
 
-- <a href="https://www.postman.com/" target="_blank"> <img src="https://github.com/Roberthdj/Foro-Alura/blob/master/readme-img/postman.svg" alt="netbeans" width="40" height="40"/> --> Postman</a>
+## Codigo fuente
 
-###
+   Foro-Alura esta desarrollado en java implementando Spring Boot.
 
-## Acceso al proyecto
+   * [Repositorio](https://github.com/Roberthdj/Foro-Alura)
+   * [Descargar Spring-01](https://github.com/Roberthdj/Foro-Alura/archive/refs/tags/foroAlura-Spring01.zip)
+   * [Descargar Spring-02](https://github.com/Roberthdj/Foro-Alura/archive/refs/tags/foroAlura-Spring02-ver_1.1.zip)
 
-Tu puedes acceder aqui [al codigo fuente](https://github.com/Roberthdj/Foro-Alura) del proyecto. 
+## Abrir localmente
 
-## Abrir un proyecto local
+Para correr Foro-Alura en tu máquina local:
 
-Para correr `Foro Alura`en tu máquina local:
+* Determina donde quieres alojar el proyecto y clonalo en la ubicacion escojida:
+   * git clone https://github.com/Roberthdj/Foro-Alura.git
 
-- Crea un nuevo proyecto de nombre Foro-Alura en el IDE que estes usando para trabajar.
+* Con el IDE de tu preferencia procede a abrir el proyecto.
+```
+Netbeans.
+1. Abrir el proyecto.
+2. Dar click en el icono Clean and Build (Shift+F11) de la barra de herramientas o buscar en la barra de menú: 
+      Run -> Clean and Build (Shift+F11) 
+3. Verificar que este configuarada la clase main: 
+      Run -> Set Project Configuration -> Customize -> Run -> MainClass
 
-- Abre una terminal de git en la ubicacion donde se aloja el nuevo proyecto que creaste
-
-- Inicializa el proyecto en la teminal con la linea: git init
-
-- Conectate al repositorio remoto con la linea: git remote add origin https://github.com/Roberthdj/Foro-Alura.git
-
-- Luego la linea: git remote -v
-
-- Finalmente ejecuta la linea: git pull origin master
-
-Si todo va bien, tu nuevo proyecto se sincronizo correctamente con el repositorio y debes realizar los ajustes necesarios en tu IDE!
-
+```
+---
 
 ## Desarrollado por
+[<img src="https://avatars.githubusercontent.com/u/120141795?v=4" width=125><br><sub>Roberth de Jesus Rodriguez Castro</sub>](https://github.com/roberthdj)
 
-[<img style ="border-radius: 20px" src="https://avatars.githubusercontent.com/u/120141795?v=4" width=115><br><sub>Roberth de Jesus Rodriguez Castro</sub>](https://github.com/roberthdj)
+---
