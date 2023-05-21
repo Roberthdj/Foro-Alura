@@ -5,7 +5,7 @@
       <img src="./readme-img/Inicio.png" alt="Foro alura" width="100" height="100"/>
       <p align="left">FORO ALURA</p>
       <p align="right">
-         <img src="http://img.shields.io/static/v1?label=STATUS&message=EN DESARROLLO%20&color=RED&style=for-the-badge" #vitrinedev                style="border-radius:25px"/>
+         <img src="http://img.shields.io/static/v1?label=STATUS&message=EN DESARROLLO%20&color=RED&style=for-the-badge" #vitrinedev style="border-radius:25px"/>
       </p>
    </h1>
 
