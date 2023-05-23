@@ -92,7 +92,7 @@ También contará con búsquedas personalizadas como:
 
    * [Repositorio](https://github.com/Roberthdj/Foro-Alura)
    * [Descargar Spring-01](https://github.com/Roberthdj/Foro-Alura/archive/refs/tags/foroAlura-Spring01.zip)
-   * [Descargar Spring-02](https://github.com/Roberthdj/Foro-Alura/archive/refs/tags/foroAlura-Spring02-ver_1.1.zip)
+   * [Descargar Spring-02](https://github.com/Roberthdj/Foro-Alura/archive/refs/tags/foroAlura-Spring02.zip)
 
 ## Abrir localmente
 
