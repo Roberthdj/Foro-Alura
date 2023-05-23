@@ -1,9 +1,7 @@
 
 package com.alura.foro.repository;
 
-import com.alura.foro.model.Curso;
 import com.alura.foro.model.Topico;
-import com.alura.foro.model.Usuario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

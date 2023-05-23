@@ -37,19 +37,21 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(req -> req
                 .requestMatchers(
                         "/login").permitAll()
+            /* Permitir Urls Swagger */
                 .requestMatchers(
                         "/v3/api-docs/**",
                         "/doc/swagger-ui/**").permitAll()
+            /* Fin permitir Urls Swagger */
                 .anyRequest()
                 .authenticated())
-                // Inicio modificar response 403 a 401
+            /* Modificar Response 403 a 401 */
                 .exceptionHandling()
                 .authenticationEntryPoint((request, response, ex) -> {
                     response.setStatus(401);
                     response.setContentType("application/json");
                     response.getWriter().write("{ \"message\": \"You are not authenticated.\" }");
+            /* Fin modificar Response 403 a 401 */
                 })
-                // Fin modificar response 403 a 401
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -68,7 +70,7 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 
-    // Personalizar información vista Swagger-ui - Agregar JWT al scope global
+    /* Personalizar información vista Swagger-ui - Agregar JWT al scope global */
     @Bean
     public OpenAPI personalizarOpenAPI() {
         final String securitySchemeName = "bearerAuth";
